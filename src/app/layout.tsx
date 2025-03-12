@@ -1,6 +1,7 @@
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
 import { Playfair_Display, Plus_Jakarta_Sans } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/react';
 import { Metadata } from 'next';
 import { ThemeProvider } from '@/components/theme/ThemeProvider';
 import { NavigationProvider } from '@/components/navigation/NavigationContext';
@@ -47,6 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             {children}
           </div>
         </ClientProviders>
+        <Analytics />
       </body>
     </html>
   );
