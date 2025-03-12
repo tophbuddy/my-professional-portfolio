@@ -6,8 +6,7 @@ const nextConfig = {
     imageSizes: [320, 480, 768],
     formats: ['image/webp'],
     minimumCacheTTL: 60,
-  },
-  swcMinify: true,
+  }
 }
 
 module.exports = nextConfig

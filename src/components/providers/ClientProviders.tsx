@@ -9,18 +9,7 @@ export default function ClientProviders({ children }: { children: React.ReactNod
     <NavigationProvider>
       <ThemeProvider>
         {children}
-        <Analytics
-          beforeSend={(event) => {
-            // Ensure user privacy by not collecting PII
-            if (event.url) {
-              const url = new URL(event.url);
-              url.search = ''; // Remove query parameters
-              event.url = url.toString();
-            }
-            return event;
-          }}
-          debug={process.env.NODE_ENV === 'development'}
-        />
+        <Analytics />
       </ThemeProvider>
     </NavigationProvider>
   );
