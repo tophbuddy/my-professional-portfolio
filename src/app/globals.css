@@ -1,26 +1,67 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/sf-mono');
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Base styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply min-h-screen overflow-x-hidden bg-navy text-slate-lightest;
+    background: linear-gradient(to bottom right, #0a192f, #112240);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Content-visibility optimization */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 5000px;
+}
+
+/* Prevent layout shifts */
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  background: var(--background-secondary);
+}
+
+.image-wrapper.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+.image-wrapper.aspect-square {
+  aspect-ratio: 1;
+}
+
+/* Smooth transitions */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Prevent FOUC */
+.no-fouc {
+  opacity: 0;
+  transition: opacity 0.1s ease-in;
+}
+
+.no-fouc.ready {
+  opacity: 1;
 }

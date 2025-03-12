@@ -1,0 +1,62 @@
+{
+  "version": 2,
+  "builds": [{
+    "src": "package.json",
+    "use": "@vercel/next",
+    "config": {
+      "maxDuration": 60,
+      "memory": 3008
+    }
+  }],
+  "images": {
+    "sizes": [640, 1024, 1920],
+    "formats": ["image/webp"],
+    "minimumCacheTTL": 60,
+    "deviceSizes": [640, 1024, 1920],
+    "imageSizes": [320, 480, 768]
+  },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=()"
+        }
+      ]
+    },
+    {
+      "source": "/fonts/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/_next/image(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
+  "redirects": [],
+  "cleanUrls": true,
+  "trailingSlash": false
+}
