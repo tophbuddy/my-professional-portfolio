@@ -40,6 +40,13 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# Documentation and internal files
+docs/cc-prompt.md
+docs/cc-chronicle.md
+docs/cc-regression.md
+docs/IMPLEMENTATION_PLAN.md
+docs/REGRESSIONS.md
+
 # Sitemap
 sitemap*.xml
 
