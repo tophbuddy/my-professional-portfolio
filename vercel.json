@@ -11,9 +11,7 @@
   "images": {
     "sizes": [640, 1024, 1920],
     "formats": ["image/webp"],
-    "minimumCacheTTL": 60,
-    "deviceSizes": [640, 1024, 1920],
-    "imageSizes": [320, 480, 768]
+    "minimumCacheTTL": 60
   },
   "headers": [
     {
