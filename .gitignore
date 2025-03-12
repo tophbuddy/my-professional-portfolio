@@ -44,7 +44,6 @@ next-env.d.ts
 docs/cc-prompt.md
 docs/cc-chronicle.md
 docs/cc-regression.md
-docs/IMPLEMENTATION_PLAN.md
 docs/REGRESSIONS.md
 
 # Sitemap
@@ -232,3 +231,4 @@ sketch
 # Ignore all local history of files
 .history
 .ionide
+.vercel
